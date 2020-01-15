@@ -81,4 +81,28 @@ test('non-iterable', async t => {
   await t.throwsAsync(() => Promise.map({}, x => x))
 })
 
+test('iterable that wait before ending', async t => {
+  async function * fn () {
+    yield 1
+    yield 2
+    yield 3
+    await delay(30)
+  }
+
+  const result = await Promise.map(fn(), x => x * 2)
+  t.deepEqual(result, [2, 4, 6])
+})
+
+test('mapper that throws', async t => {
+  const err = new Error('oops')
+
+  function fn (x) {
+    if (x === 2) throw err
+    return x * 2
+  }
+  const p = Promise.resolve([1, 2, 3]).map(fn)
+  const e = await t.throwsAsync(p)
+  t.is(e, err)
+})
+
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))

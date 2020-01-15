@@ -11,7 +11,7 @@ Single default idempotent export which adds `.map` to the given promise library 
 ### Promise.map
 `result = await Promise.map(iterable, mapper, options)`
 
-Iterates over the iterarble (or promise of an iterable), passing the results into the mapper function.
+Iterates over the iterable (or promise of an iterable), passing the results into the mapper function.
 
 Returns a promise of an array of the results.
 
