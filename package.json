@@ -1,0 +1,41 @@
+{
+  "name": "promise-map",
+  "version": "0.0.1",
+  "description": "Adds mapping to promises",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist/ node_modules/.cache/ .nyc_output/ coverage/",
+    "format": "prettier-standard {src,test}/*.js",
+    "lint": "standard {src,test}/*.js | snazzy",
+    "test": "nyc ava",
+    "coverage": "npm run test && nyc report --reporter=html && sirv coverage -H 0.0.0.0 -p 8000",
+    "build": "rollup -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludlovian/promise-map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ludlovian/promise-map/issues"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
+  "homepage": "https://github.com/ludlovian/promise-map#readme",
+  "devDependencies": {
+    "ava": "^2.4.0",
+    "esm": "^3.2.25",
+    "nyc": "^15.0.0",
+    "prettier-standard": "^16.1.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-terser": "^5.2.0",
+    "sirv-cli": "^0.4.5",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.1"
+  }
+}
