@@ -1,6 +1,6 @@
 {
   "name": "promise-map",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adds mapping to promises",
   "main": "dist/index.js",
   "scripts": {
